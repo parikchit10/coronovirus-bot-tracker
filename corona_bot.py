@@ -11,9 +11,12 @@ FORMAT = '[%(asctime)-15s] %(message)s'
 logging.basicConfig(format=FORMAT, level=logging.DEBUG, filename='bot.log', filemode='a')
 
 URL = 'https://www.mohfw.gov.in/'
-SHORT_HEADERS = ['Sno', 'State','In','Fr','Cd','Dt']
+SHORT_HEADERS = ['Sno', 'State', 'In', 'Fr', 'Cd', 'Dt']
 FILE_NAME = 'corona_india_data.json'
-extract_contents = lambda row: [x.text.replace('\n', '') for x in row]
+
+
+def extract_contents(content):
+    return [x.text.replace('\n', '') for x in content]
 
 
 def save(x):
